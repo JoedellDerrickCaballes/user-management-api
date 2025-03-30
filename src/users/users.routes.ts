@@ -6,7 +6,7 @@ import * as database from "./user.database"
 export const userRouter = express.Router()
 
 
-
+// User Creation
 userRouter.post("/login", async (req : Request, res : Response) => {
 try {
 const {email, password} = req.body
@@ -58,6 +58,9 @@ console. log(error)
 return res.status(500). json({error})
 }
 })
+
+
+//User Retrieval
 
 userRouter.get("/users/:id", async (req : Request, res : Response) => {
     try {
