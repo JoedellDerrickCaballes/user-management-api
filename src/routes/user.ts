@@ -1,6 +1,6 @@
-import { Router, Request, Response } from 'express';
+import express from 'express';
 
-const router = Router();
+const router = express.Router();
 
 // Mock user data - in a real application, this would be in a database
 let users = [
@@ -9,7 +9,7 @@ let users = [
 ];
 
 // DELETE /api/users/:id - Delete a user
-router.delete('/:id', (req: Request, res: Response) => {
+router.delete('/:id', (req: express.Request, res: express.Response) => {
   const id = parseInt(req.params.id);
   const userIndex = users.findIndex(user => user.id === id);
 
@@ -22,7 +22,7 @@ router.delete('/:id', (req: Request, res: Response) => {
 });
 
 // GET /api/users - Get all users (for testing purposes)
-router.get('/', (_req: Request, res: Response) => {
+router.get('/', (_req: express.Request, res: express.Response) => {
   res.json(users);
 });
 
